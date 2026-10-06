@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>대화가 끊겨도 이어지는 프로젝트 — 비교 보고서</title>
+<style>
+:root{--bg:#FAF8F3;--card:#FFFFFF;--text:#1B1914;--sub:#5F5A4E;--line:#E4DFD3;--accent:#C2410C;--ok:#15803D;--okbg:#E6F5EA;--ng:#B91C1C;--ngbg:#FBE5E5;--code:#F2EEE4}
+@media (prefers-color-scheme:dark){:root{--bg:#16150F;--card:#201E18;--text:#F1EDE3;--sub:#ADA796;--line:#38352C;--accent:#FB923C;--ok:#4ADE80;--okbg:#14301E;--ng:#F87171;--ngbg:#3A1717;--code:#2A2720}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.65 -apple-system,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif}
+main{max-width:880px;margin:0 auto;padding:32px 16px 64px}
+header .k{color:var(--accent);font-weight:800;font-size:13px;letter-spacing:.04em}
+h1{font-size:26px;line-height:1.3;margin:6px 0 8px}
+h2{font-size:18px;margin:40px 0 12px;padding-top:4px;border-top:2px solid var(--text)}
+h2 small{font-weight:600;color:var(--sub);font-size:13px;margin-left:6px}
+p.lead{color:var(--sub);margin:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:12px 0}
+.wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:12.5px;color:var(--sub);font-weight:700;white-space:nowrap}
+td.n{font-variant-numeric:tabular-nums;font-weight:700}
+code{background:var(--code);padding:1px 5px;border-radius:5px;font-size:12.5px;word-break:break-all}
+.pill{display:inline-block;font-size:12px;font-weight:800;padding:1px 8px;border-radius:99px}
+.ok{background:var(--okbg);color:var(--ok)}.ng{background:var(--ngbg);color:var(--ng)}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:16px}
+.kpi div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.kpi b{display:block;font-size:22px}.kpi span{font-size:12.5px;color:var(--sub)}
+ol.flow{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+ol.flow li{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:10px 12px;font-size:14px}
+ol.flow li b{display:block}
+.q{border-left:4px solid var(--accent);padding:10px 14px;background:var(--card);border-radius:0 10px 10px 0;font-weight:700}
+dl{margin:0}dt{font-weight:800;margin-top:10px}dd{margin:2px 0 0;color:var(--sub)}
+a{color:var(--accent)}
+footer{margin-top:48px;color:var(--sub);font-size:13px}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div class="k">과제 5 · 공개 비교 보고서</div>
+  <h1>대화가 끊겨도 이어지는 프로젝트</h1>
+  <p class="lead">짤 스튜디오(과제 3)의 작은 개선 하나를 두 AI 세션이 차례로 이어서 완성했습니다. 두 번째 AI는 저장소와 인수인계 문서만 받았습니다.</p>
+  <div class="kpi">
+    <div><b>10/10</b><span>최종 고정 검사 통과</span></div>
+    <div><b>0건</b><span>검사 삭제·완화·기대값 변경</span></div>
+    <div><b>없음</b><span>인수인계 누락</span></div>
+    <div><b>A→B</b><span>A 시작 → A 인계 → B 시작 → B 완료</span></div>
+  </div>
+</header>
+
+<h2>1. 개선 한 개</h2>
+<div class="card">
+  <p style="margin:0">저장하기 파일 이름에 <b>문구 첫 줄</b>을 넣습니다. 규칙: <code>zzal_{제목}_{비율}_{시각}.{확장자}</code></p>
+  <p style="margin:8px 0 0;color:var(--sub);font-size:14px">제목: 첫 줄 → 공백은 <code>_</code> → 금지 문자 <code>\ / : * ? " &lt; &gt; |</code> 제거 → 최대 20자 → 비면 <code>제목없음</code>. 예) <code>오늘도 수고했어</code> → <code>zzal_오늘도_수고했어_1x1_20261006-204026.png</code></p>
+</div>
+
+<h2>2. 작업 전에 고정한 검사 10개와 공통 상한 <small>2026-10-06 20:18 고정</small></h2>
+<p style="margin:0 0 6px;color:var(--sub);font-size:14px">공통 조건: 시각 2026-10-06 20:30:05, 비율 1:1, PNG(따로 적은 경우 제외). 원본: <a href="https://github.com/gaeun1210/zzalstudio/blob/main/tests/fn-tests.js"><code>tests/fn-tests.js</code></a></p>
+<div class="wrap"><table>
+<thead><tr><th>ID</th><th>입력(문구)</th><th>기대값(파일 이름)</th><th>A 종료</th><th>B 종료</th></tr></thead>
+<tbody>
+<tr><td>FN-01</td><td>(빈 문구)</td><td><code>zzal_제목없음_1x1_20261006-203005.png</code></td><td><span class="pill ok">PASS</span></td><td><span class="pill ok">PASS</span></td></tr>
+<tr><td>FN-02</td><td>공백 3칸</td><td><code>zzal_제목없음_1x1_20261006-203005.png</code></td><td><span class="pill ok">PASS</span></td><td><span class="pill ok">PASS</span></td></tr>
+<tr><td>FN-03</td><td><code>칭찬해</code></td><td><code>zzal_칭찬해_1x1_20261006-203005.png</code></td><td><span class="pill ok">PASS</span></td><td><span class="pill ok">PASS</span></td></tr>
+<tr><td>FN-04</td><td><code>오늘도 수고했어</code></td><td><code>zzal_오늘도_수고했어_1x1_20261006-203005.png</code></td><td><span class="pill ok">PASS</span></td><td><span class="pill ok">PASS</span></td></tr>
+<tr><td>FN-05</td><td><code>첫줄</code>⏎<code>둘째줄</code></td><td><code>zzal_첫줄_1x1_20261006-203005.png</code></td><td><span class="pill ok">PASS</span></td><td><span class="pill ok">PASS</span></td></tr>
+<tr><td>FN-06</td><td><code>a/b\c:d*e?f"g&lt;h&gt;i|j</code></td><td><code>zzal_abcdefghij_1x1_20261006-203005.png</code></td><td><span class="pill ng">FAIL</span></td><td><span class="pill ok">PASS</span></td></tr>
+<tr><td>FN-07</td><td><code>가</code> × 20</td><td><code>zzal_</code>+가×20+<code>_1x1_20261006-203005.png</code></td><td><span class="pill ok">PASS</span></td><td><span class="pill ok">PASS</span></td></tr>
+<tr><td>FN-08</td><td><code>가</code> × 21</td><td><code>zzal_</code>+가×20+<code>_1x1_20261006-203005.png</code></td><td><span class="pill ng">FAIL</span></td><td><span class="pill ok">PASS</span></td></tr>
+<tr><td>FN-09</td><td><code>///</code></td><td><code>zzal_제목없음_1x1_20261006-203005.png</code></td><td><span class="pill ng">FAIL</span></td><td><span class="pill ok">PASS</span></td></tr>
+<tr><td>FN-10</td><td><code>짤</code>, 9:16, JPEG</td><td><code>zzal_짤_9x16_20261006-203005.jpg</code></td><td><span class="pill ok">PASS</span></td><td><span class="pill ok">PASS</span></td></tr>
+</tbody></table></div>
+<div class="card"><b>공통 사용 상한 (A·B 동일)</b> — 시간: AI별 <b>60분</b> (첫 요청 ~ 마지막 답) · 요청: AI별 <b>15회</b> (학생이 보낸 메시지 수)<br>
+<b>같은 최초 요청</b> — “짤 스튜디오의 저장 파일 이름을 <code>zzal_{제목}_{비율}_{시각}.{확장자}</code> 규칙으로 바꾸고, 고정 검사 FN-01~FN-10을 모두 통과시켜 주세요. 검사는 삭제·완화·기대값 변경을 하지 않습니다.”</div>
+
+<h2>3. 작업 기록</h2>
+<ol class="flow">
+  <li><b>① A 시작</b>20:18 · 시작 소스 <code>9db4074</code></li>
+  <li><b>② A 종료·인계</b>20:21 · 코드 <code>645ad7c</code> · 7/10</li>
+  <li><b>③ B 시작</b>20:28 · 받은 소스 <code>246d079</code></li>
+  <li><b>④ B 완료</b>20:40 · 코드 <code>d07ce35</code> · 10/10</li>
+</ol>
+<p style="color:var(--sub);font-size:13.5px">원래 짤 스튜디오 버전: <code>0dfc483</code>. 전체 기록: <a href="https://github.com/gaeun1210/zzalstudio/blob/main/docs/worklog.md"><code>docs/worklog.md</code></a></p>
+
+<h2>4. 이름을 가린 측정표 <small>판정 구간</small></h2>
+<div class="wrap"><table>
+<thead><tr><th>항목</th><th>AI A</th><th>AI B</th></tr></thead>
+<tbody>
+<tr><td>실제 작업시간 (상한 60분)</td><td class="n">3분 (20:18–20:21)</td><td class="n">약 1분 (20:28 요청–20:28 답)</td></tr>
+<tr><td>실제 요청 수 (상한 15회)</td><td class="n">1회</td><td class="n">1회</td></tr>
+<tr><td>고정 검사 실행 회차</td><td class="n">1회</td><td class="n">1회</td></tr>
+<tr><td>오류 수 (FAIL이 1개 이상인 회차)</td><td class="n">1</td><td class="n">0</td></tr>
+<tr><td>검사 통과 수 (종료 시점)</td><td class="n">7/10</td><td class="n">10/10</td></tr>
+<tr><td>시작 → 종료 소스 버전</td><td><code>9db4074</code> → <code>645ad7c</code></td><td><code>246d079</code> → <code>d07ce35</code></td></tr>
+<tr><td>재작업량 (추가·삭제 줄 수)</td><td colspan="2" style="color:var(--sub)">제출 뒤 채점기가 위 버전 쌍으로 계산 (생성 파일·lockfile 제외) — 수기 입력 안 함</td></tr>
+</tbody></table></div>
+<div class="card" style="font-size:14px;color:var(--sub)">읽는 법: A의 FAIL 3개는 계획한 중단 지점(금지 문자·20자 처리를 B 몫으로 남김)입니다. A는 처음부터 함수·검사 실행기·인수인계를 만들었고, B는 좁혀진 남은 일을 맡았기 때문에 두 숫자를 같은 크기의 일로 보면 안 됩니다. B는 인수인계 문서의 “다음 행동” 1~4를 요청 1회로 그대로 수행했습니다.</div>
+
+<h2>5. 일곱 칸 인수인계와 재현</h2>
+<div class="card">
+<dl>
+<dt>문서</dt><dd><a href="https://github.com/gaeun1210/zzalstudio/blob/main/HANDOFF.md"><code>HANDOFF.md</code></a> — 목표 · 현재 상태 · 실행 명령 · 통과 검사 · 남은 문제 · 다음 행동 · 건드리지 말 것</dd>
+<dt>버전 대조</dt><dd>문서의 기준 코드 버전 <code>645ad7c</code> = 실제 AI A 종료 코드 커밋</dd>
+<dt>새 폴더 재현</dt><dd>빈 폴더에서 <code>git clone</code> → <code>node tests/run-tests.js</code> → <code>통과 7/10</code> (문서에 적힌 결과와 같음). 설치 패키지·환경값·API 키 없음</dd>
+<dt>A가 남긴 것 = B가 받은 것</dt><dd>B에게 첨부한 <code>HANDOFF.md</code>의 sha256 <code>2c6873f8…99908</code> = 저장소 <code>246d079</code>의 파일과 동일. B에게는 저장소 주소와 파일 4개(<code>HANDOFF.md</code>, <code>filename.js</code>, <code>tests/fn-tests.js</code>, <code>tests/run-tests.js</code>)만 주고, A의 대화는 주지 않았습니다.</dd>
+<dt>인수인계 누락</dt><dd>없음 — B가 앞 대화나 추가 설명을 요구하지 않았고, 문서 수정도 없었습니다.</dd>
+</dl>
+</div>
+
+<h2>6. 다음 작업의 도구 선택 기준</h2>
+<p class="q">검사와 범위를 새로 정해야 하는 설계 단계는 A 유형 도구로 먼저 하고, 인수인계 문서로 남은 일이 좁혀진 마무리 구현은 빠르고 무료 한도가 넉넉한 B 유형 도구에 먼저 맡긴다.</p>
+
+<h2>7. 확인 방법 · AI와 나의 판단</h2>
+<div class="card">
+<b>짧은 확인 방법</b>
+<ol style="margin:6px 0 0;padding-left:20px">
+<li><b>어디로:</b> <a href="tests.html">고정 검사 화면(tests.html)</a> — 같은 사이트의 <a href="index.html">짤 스튜디오</a></li>
+<li><b>무엇을 (3단계):</b> ① 검사 화면을 연다 → ② 맨 위 결과 줄을 본다 → ③ 짤 스튜디오에서 문구 <code>칭찬해</code> 입력 후 저장하기</li>
+<li><b>통과 모습:</b> 초록색 <code>통과 10/10</code>, 저장 후 화면 아래에 <code>zzal_칭찬해_1x1_…png</code></li>
+<li><b>안 될 때:</b> 빨간색 <code>통과 N/10</code>과 FAIL 줄에 기대·실제 값, 또는 예전 이름 <code>zzal_1x1_…png</code></li>
+</ol>
+</div>
+<div class="card">
+<b>AI와 나의 판단</b>
+<ol style="margin:6px 0 0;padding-left:20px">
+<li><b>AI에게 맡긴 일:</b> 개선 기능 제안, 검사 10개 초안, 파일 이름 함수·검사 실행기·인수인계 문서 작성(A), 남은 규칙 구현과 저장 버튼 연결(B)</li>
+<li><b>직접 판단한 일:</b> 과제 3 선택(같은 입력에 같은 결과), B 도구와 모델 고정, 검사 문구를 긍정적인 말로 교체, B에게 줄 자료 범위 결정</li>
+<li><b>AI 제안을 따르지 않은 일:</b> FN-05 문구도 바꾸자는 제안 — 부정적인 말이 아니고 경계값 확인용이라 그대로 두었습니다</li>
+</ol>
+</div>
+
+<footer>
+<p><b>판정 후 공개</b> — 측정 이후에만 밝힙니다: AI A와 AI B는 서로 다른 서비스·다른 모델입니다. (A: Claude / B: Gemini 3.6 Flash, 작업 중 모델 변경 없음)</p>
+<p>소스: <a href="https://github.com/gaeun1210/zzalstudio">github.com/gaeun1210/zzalstudio</a> · 대화 전문은 싣지 않았습니다. 이 페이지에는 개인정보·비밀값이 없습니다.</p>
+</footer>
+</main>
+</body>
+</html>
