@@ -726,6 +726,7 @@ textarea.zv-input{resize:vertical;min-height:64px}
 <button type="button" id="miniPreview" class="zv-mini" hidden aria-label="미리보기로 돌아가기"><canvas id="miniCv" width="140" height="140"></canvas><span>미리보기</span></button>
 <div id="toastContainer" role="status" aria-live="polite"></div>
 
+    <script src="filename.js"></script>
     <script>
     (() => {
     'use strict';
@@ -1714,7 +1715,13 @@ textarea.zv-input{resize:vertical;min-height:64px}
             const btn = $('#dlBtn'); btn.disabled = true;
             try {
                 const blob = await exportBlob(S), meta = await scanMeta(blob), [W, H] = RATIOS[S.ratio];
-                const name = `zzal_${S.ratio.replace(':', 'x')}_${stamp()}.${S.format === 'jpeg' ? 'jpg' : 'png'}`;
+                const first = S.layers.find(L => L.text.trim());
+                const name = ZzalFileName.makeFileName({
+                  text: first ? first.text : '',
+                  ratio: S.ratio,
+                  format: S.format,
+                  date: new Date()
+                });
                 $('#exportInfo').textContent = `${name}: ${W}×${H}px, ${(blob.size / 1024).toFixed(0)}KB, EXIF ${meta.exif}건, 위치 정보 ${meta.gps}건`;
                 if (await saveBlob(blob, name, true)) { addWork(name); showToast(`저장했어요 (${name}). "내 완성작"에도 담았어요.`, 'pink'); }
             } catch (e) { showToast(`내보내지 못했습니다: ${e.message}`, 'yellow'); }
