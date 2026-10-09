@@ -88,21 +88,21 @@ footer{margin-top:48px;color:var(--sub);font-size:13px}
 <div class="wrap"><table>
 <thead><tr><th>항목</th><th>AI A</th><th>AI B</th></tr></thead>
 <tbody>
-<tr><td>실제 작업시간 (상한 60분)</td><td class="n">3분 (20:18–20:21)</td><td class="n">약 1분 (20:28 요청–20:28 답)</td></tr>
+<tr><td>실제 작업시간 (상한 60분)</td><td class="n">3분 (20:18 시작–20:21 인계)</td><td class="n">응답 기준 약 1분 (20:28 요청–20:28 답)<br><span style="font-weight:500;color:var(--sub)">종료 기록까지 12분 (20:28–20:40) · 둘 다 상한 이내</span></td></tr>
 <tr><td>실제 요청 수 (상한 15회)</td><td class="n">1회</td><td class="n">1회</td></tr>
-<tr><td>고정 검사 실행 회차</td><td class="n">1회</td><td class="n">1회</td></tr>
+<tr><td>고정 검사 실행 회차</td><td class="n">1회 (A-1)</td><td class="n">1회 (B-1)</td></tr>
 <tr><td>오류 수 (FAIL이 1개 이상인 회차)</td><td class="n">1</td><td class="n">0</td></tr>
 <tr><td>검사 통과 수 (종료 시점)</td><td class="n">7/10</td><td class="n">10/10</td></tr>
 <tr><td>시작 → 종료 소스 버전</td><td><code>9db4074</code> → <code>645ad7c</code></td><td><code>246d079</code> → <code>d07ce35</code></td></tr>
 <tr><td>재작업량 (추가·삭제 줄 수)</td><td colspan="2" style="color:var(--sub)">제출 뒤 채점기가 위 버전 쌍으로 계산 (생성 파일·lockfile 제외) — 수기 입력 안 함</td></tr>
 </tbody></table></div>
-<div class="card" style="font-size:14px;color:var(--sub)">읽는 법: A의 FAIL 3개는 계획한 중단 지점(금지 문자·20자 처리를 B 몫으로 남김)입니다. A는 처음부터 함수·검사 실행기·인수인계를 만들었고, B는 좁혀진 남은 일을 맡았기 때문에 두 숫자를 같은 크기의 일로 보면 안 됩니다. B는 인수인계 문서의 “다음 행동” 1~4를 요청 1회로 그대로 수행했습니다.</div>
+<div class="card" style="font-size:14px;color:var(--sub)">읽는 법: A의 FAIL 3개는 계획한 중단 지점(금지 문자·20자 처리를 B 몫으로 남김)입니다. A는 처음부터 함수·검사 실행기·인수인계를 만들었고, B는 좁혀진 남은 일을 맡았기 때문에 두 숫자를 같은 크기의 일로 보면 안 됩니다. B는 인수인계 문서의 “다음 행동” 1~4를 요청 1회로 그대로 수행했습니다.<br><b>B-1 회차 실행 방법:</b> B가 준 코드를 한 글자도 고치지 않고 저장소에 반영(<code>d07ce35</code>)한 뒤 고정 검사 10개를 실행해 10/10을 얻었고, 학생이 새 시크릿 창의 <code>tests.html</code>에서 10/10을 다시 확인했습니다(2026-10-06 20:59).</div>
 
 <h2>5. 일곱 칸 인수인계와 재현</h2>
 <div class="card">
 <dl>
 <dt>문서</dt><dd><a href="https://github.com/gaeun1210/zzalstudio/blob/main/HANDOFF.md"><code>HANDOFF.md</code></a> — 목표 · 현재 상태 · 실행 명령 · 통과 검사 · 남은 문제 · 다음 행동 · 건드리지 말 것</dd>
-<dt>버전 대조</dt><dd>문서의 기준 코드 버전 <code>645ad7c</code> = 실제 AI A 종료 코드 커밋</dd>
+<dt>버전 대조</dt><dd>문서의 기준 코드 버전 <code>645ad7c</code> = 실제 AI A 종료 코드 커밋. B가 받은 <code>246d079</code>는 여기에 문서(<code>HANDOFF.md</code>, <code>docs/a-results.md</code>, <code>docs/worklog.md</code>)만 더한 버전이라 코드는 같습니다.</dd>
 <dt>새 폴더 재현</dt><dd>빈 폴더에서 <code>git clone</code> → <code>node tests/run-tests.js</code> → <code>통과 7/10</code> (문서에 적힌 결과와 같음). 설치 패키지·환경값·API 키 없음</dd>
 <dt>A가 남긴 것 = B가 받은 것</dt><dd>B에게 첨부한 <code>HANDOFF.md</code>의 sha256 <code>2c6873f8…99908</code> = 저장소 <code>246d079</code>의 파일과 동일. B에게는 저장소 주소와 파일 4개(<code>HANDOFF.md</code>, <code>filename.js</code>, <code>tests/fn-tests.js</code>, <code>tests/run-tests.js</code>)만 주고, A의 대화는 주지 않았습니다.</dd>
 <dt>인수인계 누락</dt><dd>없음 — B가 앞 대화나 추가 설명을 요구하지 않았고, 문서 수정도 없었습니다.</dd>
@@ -125,8 +125,8 @@ footer{margin-top:48px;color:var(--sub);font-size:13px}
 <div class="card">
 <b>AI와 나의 판단</b>
 <ol style="margin:6px 0 0;padding-left:20px">
-<li><b>AI에게 맡긴 일:</b> 개선 기능 제안, 검사 10개 초안, 파일 이름 함수·검사 실행기·인수인계 문서 작성(A), 남은 규칙 구현과 저장 버튼 연결(B)</li>
-<li><b>직접 판단한 일:</b> 과제 3 선택(같은 입력에 같은 결과), B 도구와 모델 고정, 검사 문구를 긍정적인 말로 교체, B에게 줄 자료 범위 결정</li>
+<li><b>AI에게 맡긴 일:</b> 개선 기능 제안, 검사 10개 초안, 파일 이름 함수·검사 실행기·인수인계 문서 작성(A), 남은 규칙 구현과 저장 버튼 연결 코드(B), B 코드의 저장소 반영과 검사 실행(코드 수정 없음)</li>
+<li><b>직접 판단한 일:</b> 부정적인 검사 문구(FN-03·04)를 긍정적인 말로 바꿨고, B의 모델 목록을 직접 확인해 하나로 고정했으며, 과제 3 저장소를 고쳐도 되는지 문제를 제기해 원본을 <code>task3</code>로 따로 보관하기로 했습니다</li>
 <li><b>AI 제안을 따르지 않은 일:</b> FN-05 문구도 바꾸자는 제안 — 부정적인 말이 아니고 경계값 확인용이라 그대로 두었습니다</li>
 </ol>
 </div>
